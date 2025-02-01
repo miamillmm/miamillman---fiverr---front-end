@@ -10,13 +10,21 @@ const Featured = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/cars`)
+      .get(`/data.json`)
       .then((res) => {
-        setDatas(res.data.data);
+        setDatas(res.data);
       })
       .catch((error) => {
         console.log("error fetching data:", error);
       });
+    // axios
+    //   .get(`${import.meta.env.VITE_API_URL}/cars`)
+    //   .then((res) => {
+    //     setDatas(res.data.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error fetching data:", error);
+    //   });
   }, []);
 
   return (
@@ -35,18 +43,21 @@ const Featured = () => {
           <button className="text-[14px] sm:text-[16px] font-[400] text-[#ff9540] bg-[#314352] py-3 sm:py-4 px-6 sm:px-8 rounded cursor-pointer">
             All
           </button>
-          <button className="bg-[#ff9540] text-[#314352] text-[16px] sm:text-[18px] font-[400] justify-between py-3 sm:py-4 px-8 sm:px-12 rounded-md flex items-center gap-2 cursor-pointer">
+          <Link
+            to="/listing"
+            className="bg-[#ff9540] text-[#314352] text-[16px] sm:text-[18px] font-[400] justify-between py-3 sm:py-4 px-8 sm:px-12 rounded-md flex items-center gap-2 cursor-pointer"
+          >
             View All
             <span>
               <TiArrowRight />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 
       {/* All Car cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {datas.length > 0 ? (
+        {datas?.length > 0 ? (
           <>
             {datas?.map((data) => (
               <Link to={`/cardetails/${data.carName}`} key={data.id}>

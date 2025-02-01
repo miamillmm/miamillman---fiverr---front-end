@@ -54,3 +54,8 @@ select option {
   object-fit: cover;
 }
 
+select option {
+  background-color: white;
+  color: black;
+  padding: 2px 4px;
+}

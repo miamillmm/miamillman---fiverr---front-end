@@ -10,14 +10,14 @@ const Breadcrumb = ({ carname }) => {
             Home
           </Link>
         </li>
-        <li className="text-orange-400">›</li>
+        <li className="text-[#ff9540]">›</li>
         <li>
           <Link to="/listing" className="text-gray-800 hover:text-[#ff9540]">
-            {" "}
+     
             Search Results
           </Link>
         </li>
-        <li className="text-orange-400">›</li>
+        <li className="text-[#ff9540]">›</li>
         <li className="text-gray-900 font-semibold">{carname}</li>
       </ol>
     </nav>

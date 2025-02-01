@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import LoginAndRegister from "../Pages/Authentication/LoginAndRegister";
 import CarDetails from "../Pages/CarDetails";
 import AddListingPage from "../Pages/AddListingPage";
+import Listing from "../Pages/Listing";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/addlisting",
         element: <AddListingPage />,
+      },
+      {
+        path: "/listing",
+        element: <Listing />,
       },
 
     ],
