@@ -3,6 +3,9 @@ import axios from "axios";
 import { FaTh, FaList } from "react-icons/fa";
 import Breadcrumb from "./Breadcumb";
 import { Link } from "react-router";
+import { IoEyeOutline } from "react-icons/io5";
+import { IoIosGitCompare } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
 
 const Listing = () => {
   const [datas, setDatas] = useState([]);
@@ -436,39 +439,112 @@ const Listing = () => {
             </div>
           </div>
           <div
-            className={
-              view === "grid" ? "grid grid-cols-3 gap-4" : "flex flex-col gap-4"
-            }
+            className={`grid ${
+              view === "grid"
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                : ""
+            }`}
           >
             {filteredData?.length > 0 ? (
-              filteredData?.map((data) => (
-                <Link to={`/cardetails/${data.carName}`} key={data.id}>
+              filteredData?.map((data, index) => (
+                <Link to={`/cardetails/${data.listing_name}`} key={data.id}>
                   <div
-                    className="shadow-sm rounded border p-4 flex gap-4"
-                    style={{
-                      flexDirection: view === "grid" ? "column" : "row",
-                    }}
+                    className={`relative shadow-sm rounded ${
+                      index < 2 ? "border-[#ff9540] border-2 bg-[#FFEEE2]" : ""
+                    }`} // Apply border to first two cards
                   >
-                    <div className="overflow-hidden rounded-t-md">
-                      <img
-                        alt=""
-                        src={data.image}
-                        className={
-                          view === "grid"
-                            ? "h-40 w-full object-cover transition-transform duration-500 hover:scale-105 ease-in-out"
-                            : "h-24 w-32 object-cover"
-                        }
-                      />
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-semibold">
-                        {data.listing_name}
-                      </h2>
-                      <p className="text-orange-500 font-bold">
-                        ${data.price_usd}
-                      </p>
-                      <p className="text-gray-500">{data.views} Views</p>
-                    </div>
+                    {/* Add "Featured" badge */}
+
+                    {index < 2 && (
+                      <div className="absolute top-5 left-5 bg-[#FF9540] text-white text-sm font-bold px-2 py-1 rounded-tr-lg rounded-bl-lg z-10 pointer-events-none">
+                        Featured
+                      </div>
+                    )}
+
+                    {view === "grid" ? (
+                      <div>
+                        {/* Image in grid view */}
+                        <div className="overflow-hidden rounded-t-md">
+                          <img
+                            alt=""
+                            src={data.image}
+                            className="h-40 sm:h-56 w-full object-cover transition-transform duration-500 hover:scale-105 ease-in-out"
+                          />
+                        </div>
+
+                        {/* Name, price, and buttons */}
+                        <div className="px-4 py-3">
+                          <h2 className="text-[#314352] font-semibold text-lg">
+                            {data.listing_name}
+                          </h2>
+                          <p className="text-[#314352] text-lg">
+                            ${data.price_usd}
+                          </p>
+                        </div>
+
+                        {/* Buttons and view counter */}
+                        <div className="mt-6 text-xs border-t-2 border-gray-100 py-3">
+                          <div className="flex justify-between px-4 py-2">
+                            <div className="flex gap-2 items-center">
+                              <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                                <IoEyeOutline className="w-1/2 h-1/2" />
+                              </div>
+                              <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                                <IoIosGitCompare className="w-1/2 h-1/2" />
+                              </div>
+                              <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                                <CiHeart className="w-1/2 h-1/2" />
+                              </div>
+                            </div>
+                            <div className="flex justify-center items-center cursor-pointer">
+                              <p className="text-gray-400 text-[12px] sm:text-[14px]">
+                                {data.views} Views
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex gap-4 items-center relative">
+                        {/* Image on the left */}
+                        <div className="w-56 h-56 sm:w-72 sm:h-72 overflow-hidden rounded-md">
+                          <img
+                            alt=""
+                            src={data.image}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {/* Text information on the right */}
+                        <div className="flex flex-col justify-between w-full">
+                          <h2 className="text-[#314352] font-semibold text-lg">
+                            {data.listing_name}
+                          </h2>
+                          <p className="text-[#314352] text-lg">
+                            ${data.price_usd}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {data.year} | {data.kilometer} km
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {data.location}
+                          </p>
+                        </div>
+
+                        {/* Icons in the bottom-right corner in list view */}
+                        <div className="absolute bottom-2 right-2 flex gap-2">
+                          <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                            <IoEyeOutline className="w-1/2 h-1/2" />
+                          </div>
+                          <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                            <IoIosGitCompare className="w-1/2 h-1/2" />
+                          </div>
+                          <div className="hover:text-[#ff9540] hover:border-[#ff9540] duration-500 w-8 h-8 rounded-full flex justify-center items-center border border-gray-400">
+                            <CiHeart className="w-1/2 h-1/2" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </Link>
               ))

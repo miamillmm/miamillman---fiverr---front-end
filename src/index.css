@@ -59,3 +59,7 @@ select option {
   color: black;
   padding: 2px 4px;
 }
+
+.card:nth-of-type(1), .card:nth-of-type(2) {
+  border: 2px solid #ff9540 !important;
+}
