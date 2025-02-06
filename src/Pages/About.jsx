@@ -3,11 +3,12 @@ import cover from "../assets/bg-image/cover-1.jpg";
 import service1 from "../assets/service/service1.png";
 import service2 from "../assets/service/service2.png";
 import service3 from "../assets/service/service3.png";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import hand from "../assets/bg-image/hand.jpg";
 import { TiArrowRight } from "react-icons/ti";
 import Subscribe from "./Subscribe";
+import Translate from "../utils/Translate";
 
 const About = () => {
   return (
@@ -31,7 +32,10 @@ const About = () => {
         <div className="relative z-10 container mx-auto px-4 sm:px-8 lg:px-18 h-full flex flex-col justify-center">
           {/* Title */}
           <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.04em] pt-10">
-            <span className="text-[#FF9540] text-[38px] sm:text-[58px]">About</span> SyriaSouq
+            <span className="text-[#FF9540] text-[38px] sm:text-[58px]">
+              <Translate text={"About"} />
+            </span>{" "}
+            SyriaSouq
           </h1>
 
           {/* Breadcrumb */}
@@ -41,10 +45,12 @@ const About = () => {
                 to="/"
                 className="hover:text-[#ff9540] duration-500 transition-all ease-in-out"
               >
-                Home
+                <Translate text={"Home"} />
               </NavLink>
               <MdOutlineKeyboardArrowRight />
-              <span className="text-white">Contact</span>
+              <span className="text-white">
+                <Translate text={"Contact"} />
+              </span>
             </nav>
           </div>
         </div>
@@ -63,25 +69,29 @@ const About = () => {
         {/* Text Section */}
         <div className="md:w-1/2 w-full text-center md:text-left md:ml-20 space-y-3">
           <button className="text-[12px] sm:text-[14px] font-[400] text-gray-500 bg-gray-100 py-2 px-4 rounded cursor-pointer tracking-[-0.04em]">
-            About us
+            <Translate text={"About us"} />
           </button>
           <h2 className="text-[28px] sm:text-[36px] font-bold text-[#314352] space-y-1 tracking-[-0.04em] sm:mr-10">
-            The #1 Syrian Sales Website
+            <Translate text={"The #1 Syrian Sales Website"} />
           </h2>
           <p className="text-gray-500">
-            Created by a Syrian to form a sales community that is safe, reliable
-            and easy for everyone to use to their benefit. Enjoy!
+            <Translate
+              text={`Created by a Syrian to form a sales community that is safe, reliable
+            and easy for everyone to use to their benefit. Enjoy!`}
+            />
           </p>
 
-          <button
-            type="submit"
-            className="w-full sm:w-2/3 bg-[#374B5C] py-3 sm:py-4 rounded-lg text-[#ff9540] text-lg cursor-pointer flex justify-between items-center px-6 sm:px-12 mt-6 sm:mt-10"
-          >
-            Explore Listings{" "}
-            <span>
-              <TiArrowRight className="text-3xl text-[#ff9540]" />
-            </span>
-          </button>
+          <Link to={"/search"}>
+            <button
+              type="submit"
+              className="w-full sm:w-2/3 bg-[#374B5C] py-3 sm:py-4 rounded-lg text-[#ff9540] text-lg cursor-pointer flex justify-between items-center px-6 sm:px-12 mt-6 sm:mt-10"
+            >
+              <Translate text={"Explore Listings"} />{" "}
+              <span>
+                <TiArrowRight className="text-3xl text-[#ff9540]" />
+              </span>
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -89,11 +99,11 @@ const About = () => {
       <section className="bg-[#F8FAFD] py-8 sm:py-12">
         <div className="text-center mb-8">
           <button className="text-[12px] sm:text-[14px] font-[400] text-gray-500 bg-gray-100 py-2 px-4 rounded cursor-pointer tracking-[-0.04em]">
-            Why choose us?
+            <Translate text={"Why choose us?"} />
           </button>
           <h2 className="text-[28px] sm:text-[36px] font-bold text-[#314352] space-y-1 tracking-[-0.04em] sm:mr-10 leading-[1]">
-            We are the best <br />
-            sales platform for you
+            <Translate text={"We are the best"} /> <br />
+            <Translate text={"sales platform for you"} />
           </h2>
         </div>
 
@@ -107,7 +117,9 @@ const About = () => {
               <span className="extra-font">120</span>
               <span className="text-[15px]">k</span>
             </h3>
-            <p className="text-[#314352] mt-2">Listings added</p>
+            <p className="text-[#314352] mt-2">
+              <Translate text={"Listings added"} />
+            </p>
           </div>
 
           {/* Stat Item */}
@@ -119,7 +131,9 @@ const About = () => {
               <span className="extra-font">2.7</span>
               <span className="text-[15px]">m</span>
             </h3>
-            <p className="text-[#314352] mt-2">Daily searches</p>
+            <p className="text-[#314352] mt-2">
+              <Translate text={"Daily searches"} />
+            </p>
           </div>
 
           {/* Stat Item */}
@@ -128,7 +142,9 @@ const About = () => {
               <span className="extra-font">20k</span>
               <span className="text-[20px]">+</span>
             </h3>
-            <p className="text-[#314352] mt-2">Registered users</p>
+            <p className="text-[#314352] mt-2">
+              <Translate text={"Registered users"} />
+            </p>
           </div>
 
           {/* Stat Item */}
@@ -137,7 +153,9 @@ const About = () => {
               <span className="extra-font">50</span>
               <span className="text-[20px]">+</span>
             </h3>
-            <p className="text-[#314352] mt-2">Quality awards</p>
+            <p className="text-[#314352] mt-2">
+              <Translate text={"Quality awards"} />
+            </p>
           </div>
         </div>
       </section>
@@ -147,10 +165,10 @@ const About = () => {
         {/* Header Section */}
         <div className="text-center space-y-2 mb-8">
           <button className="text-[12px] sm:text-[14px] font-[400] text-gray-500 bg-gray-100 py-2 px-4 rounded cursor-pointer tracking-[-0.04em]">
-            We Can Assist You Further
+            <Translate text={"We Can Assist You Further"} />
           </button>
           <h2 className="text-[28px] sm:text-[36px] font-bold text-[#314352] space-y-1 tracking-[-0.04em] sm:mr-10 leading-[1]">
-            How SyriaSouq works
+            <Translate text={"How SyriaSouq works"} />
           </h2>
         </div>
 
@@ -169,7 +187,11 @@ const About = () => {
             <div className="relative flex flex-col items-center text-center space-y-4 ">
               {/* Circle SVG */}
               <div className="flex items-center justify-center w-16 h-16">
-                <img src={service1} alt="Search Icon" className="w-full h-full" />
+                <img
+                  src={service1}
+                  alt="Search Icon"
+                  className="w-full h-full"
+                />
               </div>
 
               {/* Icon */}
@@ -195,12 +217,15 @@ const About = () => {
               </div>
 
               {/* Step Title */}
-              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">Search</h3>
+              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">
+                <Translate text={"Search"} />
+              </h3>
 
               {/* Step Description */}
               <p className="text-gray-600 text-[16px]">
-                Use the Search bar and the icons to find what you are looking
-                for.
+                <Translate
+                  text={`Use the Search bar and the icons to find what you are looking for.`}
+                />
               </p>
             </div>
 
@@ -251,11 +276,17 @@ const About = () => {
               </div>
 
               {/* Step Title */}
-              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">Find</h3>
+              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">
+                <Translate text={"Find"} />
+              </h3>
 
               {/* Step Description */}
               <p className="text-gray-600 text-[16px]">
-                Check out each brand, type and model of car you are looking for.
+                <Translate
+                  text={
+                    "Check out each brand, type and model of car you are looking for."
+                  }
+                />
               </p>
             </div>
 
@@ -280,7 +311,11 @@ const About = () => {
             <div className="relative flex flex-col items-center text-center space-y-4">
               {/* Circle SVG */}
               <div className="flex items-center justify-center w-16 h-16">
-                <img src={service3} alt="Connect Icon" className="w-full h-full" />
+                <img
+                  src={service3}
+                  alt="Connect Icon"
+                  className="w-full h-full"
+                />
               </div>
 
               {/* Icon */}
@@ -305,12 +340,16 @@ const About = () => {
                 </svg>
               </div>
               {/* Step Title */}
-              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">Connect</h3>
+              <h3 className="text-2xl tracking-[-0.04em] font-bold text-[#314352]">
+                <Translate text={"Connect"} />
+              </h3>
 
               {/* Step Description */}
               <p className="text-gray-600 text-[16px]">
-                Connect to the seller through easy communication and get your
-                car today!
+                <Translate
+                  text={`Connect to the seller through easy communication and get your
+                car today!`}
+                />
               </p>
             </div>
           </div>
