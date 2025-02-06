@@ -5,6 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import img1 from "../assets/car/IMG_1.jpeg";
 import img2 from "../assets/car/IMG_6.jpeg";
 import img3 from "../assets/car/IMG_9.jpeg";
+import Translate from "../utils/Translate";
 
 const listings = [
   { id: 1, title: "Raptor F150 – 2020", price: "$60,000", image: img1 },
@@ -32,7 +33,7 @@ const FeaturedCard = () => {
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden p-4">
       <div className="mb-5 pb-4 border-b border-gray-400 font-semibold text-gray-700">
-        Featured listings
+        <Translate text={"Featured listings"} />
       </div>
       <img
         src={image}

@@ -1,14 +1,10 @@
 import { Link, useNavigate, useParams } from "react-router";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
 import Breadcrumb from "./Breadcumb";
 import { TiMessages } from "react-icons/ti";
 import {
@@ -24,6 +20,7 @@ import MoreFromUser from "./MoreFromUser";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaWhatsapp } from "react-icons/fa";
+import Translate from "../utils/Translate";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -52,11 +49,6 @@ const CarDetails = () => {
 
   const startNewChat = async (receiver) => {
     try {
-      // let conversation = conversations.find((c) =>
-      //   c.participants.includes(receiver.id)
-      // );
-
-      // if (!conversation) {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/conversations`,
         {
@@ -72,13 +64,6 @@ const CarDetails = () => {
       if (response.data) {
         return navigate("/messages");
       }
-
-      // conversation = response.data;
-      // setConversations([conversation, ...conversations]);
-      // }
-
-      // setSelectedChat(conversation);
-      // fetchMessages(conversation.id);
     } catch (error) {
       console.error("Error starting new chat", error);
     }
@@ -127,7 +112,7 @@ const CarDetails = () => {
           <div className="lg:col-span-8 min-h-screen">
             <div className="space-y-5 bg-white shadow rounded-lg p-6">
               <p className="text-gray-500 text-sm flex items-center gap-2">
-                <span>🕒</span> 3 years ago
+                <span>🕒</span> {carDetails?.year}
               </p>
               <h1 className="text-2xl text-[#314352] font-bold mt-2">
                 {carDetails?.make}
@@ -140,19 +125,27 @@ const CarDetails = () => {
             {/* Car Information */}
             <div className="p-6">
               <h2 className="text-2xl pb-4 text-[#314352] font-semibold">
-                Information:
+                <Translate text="Information:" />
               </h2>
               <div className="grid grid-cols-2 gap-y-2 text-[#314352]">
-                <p className="font-semibold">Make:</p>
+                <p className="font-semibold">
+                  <Translate text="Make:" />
+                </p>
                 <p>{carDetails?.make}</p>
 
-                <p className="font-semibold">Model:</p>
+                <p className="font-semibold">
+                  <Translate text="Model:" />
+                </p>
                 <p>{carDetails?.model}</p>
 
-                <p className="font-semibold">Price:</p>
+                <p className="font-semibold">
+                  <Translate text={"Price:"} />
+                </p>
                 <p>${carDetails?.priceUSD}</p>
 
-                <p className="font-semibold">Kilometer:</p>
+                <p className="font-semibold">
+                  <Translate text={"Kilometer:"} />
+                </p>
                 <p>{carDetails?.kilometer} km</p>
               </div>
             </div>
@@ -160,13 +153,13 @@ const CarDetails = () => {
             {/* car details  */}
             <div className="space-y-5 bg-white shadow rounded-lg p-6">
               <h1 className="text-2xl text-[#314352] font-bold mt-2">
-                Description:
+                <Translate text={"Description:"} />
               </h1>
               <p className="text-[#314352] mt-2 mb-5">
                 {carDetails?.description}
               </p>
               <span className="border-t pt-5 border-gray-400 font-bold text-gray-400 mb-2 inline-block">
-                Related
+                <Translate text="Related" />
               </span>
               <div className="flex justify-between items-center w-full">
                 <div className="w-1/3">
@@ -252,7 +245,7 @@ const CarDetails = () => {
                 rel="noopener noreferrer"
                 className="w-full bg-[#25D366] text-white py-4 px-8 font-semibold rounded-md flex items-center justify-center gap-2 cursor-pointer"
               >
-                <FaWhatsapp /> Chat on WhatsApp
+                <FaWhatsapp /> <Translate text="Chat on WhatsApp" />
               </a>
             </div>
 
@@ -273,20 +266,22 @@ const CarDetails = () => {
             {/* error  */}
             <div className="flex justify-center items-center my-8 gap-2 text-xl text-[#ED5E54] cursor-pointer">
               <MdErrorOutline />
-              <h2>Report abuse</h2>
+              <h2>
+                <Translate text="Report abuse" />
+              </h2>
             </div>
 
             <FeaturedCard />
           </div>
         </div>
         <MoreFromUser
-          title={"More from this user"}
-          button={"Display All From SyriaSouq"}
+          title={<Translate text="More from this user" />}
+          button={<Translate text="Display All From SyriaSouq" />}
           uid={user?._id}
         />
         <MoreFromUser
-          title={"You may also like..."}
-          button={"Start a new search"}
+          title={<Translate text={"You may also like..."} />}
+          button={<Translate text="Start a new search" />}
         />
       </div>
     </div>
