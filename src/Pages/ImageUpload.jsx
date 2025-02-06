@@ -70,9 +70,9 @@ const ImageUploadPreview = ({ uploadedImages, setUploadedImages }) => {
           </div>
         ) : (
           // Image Preview Interface
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between space-y-4 sm:space-y-0 sm:flex-nowrap">
             {/* Left - Image Preview */}
-            <div className="flex space-x-2 w-3/4 overflow-x-auto">
+            <div className="flex space-x-2 overflow-x-auto w-full sm:w-3/4  sm:flex-nowrap">
               {uploadedImages.map((image, index) => (
                 <div
                   key={image.id}
@@ -94,7 +94,7 @@ const ImageUploadPreview = ({ uploadedImages, setUploadedImages }) => {
             </div>
 
             {/* Right - Counter and Add More */}
-            <div className="flex flex-col items-end space-y-2 w-1/4">
+            <div className="flex flex-col items-end space-y-2 w-full sm:w-1/4">
               <p className="text-sm text-gray-500">
                 {uploadedImages.length} / 20
               </p>

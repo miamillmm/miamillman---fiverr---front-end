@@ -89,15 +89,19 @@ const AddListingPage = () => {
       </div>
 
       {/* form start here  */}
-      <div className="px-28 bg-gray-100 shadow p-6 ">
-        <div className="flex items-center w-full mb-5 pl-5">
-          <h2 className="text-2xl font-bold text-[#314252] whitespace-nowrap">
+      <div className="px-4 md:px-28 bg-gray-100 shadow p-6">
+        {/* Section Header */}
+        <div className="flex items-center w-full mb-5 pl-2 md:pl-5">
+          <h2 className="text-xl md:text-2xl font-bold text-[#314252] whitespace-nowrap">
             General info
           </h2>
           <div className="flex-1 border-t border-gray-300 border-dashed mx-2"></div>
           <button className="text-gray-400 hover:text-gray-600">▼</button>
         </div>
+
+        {/* Form */}
         <form onSubmit={handleSubmit}>
+          {/* Listing Name */}
           <label className="w-full">
             <div className="mb-2 px-3">
               <h3 className="font-semibold">Listing Name*</h3>
@@ -112,9 +116,12 @@ const AddListingPage = () => {
               required
             />
           </label>
-          <div className="flex justify-between items-center gap-10 mt-8">
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+          {/* First Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            {/* Make */}
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Make</h3>
               </div>
               <Select
@@ -135,8 +142,9 @@ const AddListingPage = () => {
               />
             </label>
 
-            <label className="w-full">
-              <div className="mb-2 px-3">
+            {/* Model */}
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Model</h3>
               </div>
               <Select
@@ -156,64 +164,72 @@ const AddListingPage = () => {
                 classNamePrefix="select"
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            {/* Price (USD) */}
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Price (USD)</h3>
               </div>
               <input
                 type="number"
                 placeholder="$"
-                className="w-full py-4 border-gray-300 rounded px-6 text-end"
+                className="w-full py-3 border border-gray-300 rounded px-4 text-end box-border"
                 value={priceUSD}
                 onChange={(e) => setPriceUSD(e.target.value)}
                 required
               />
             </label>
           </div>
-          <div className="flex justify-between items-center gap-10 mt-8">
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+          {/* Second Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Price (SYP)</h3>
               </div>
               <input
                 type="number"
                 placeholder="SYP"
-                className="w-full py-4 border-gray-300 rounded px-6 text-end"
+                className="w-full py-3 border border-gray-300 rounded px-4 text-end box-border"
                 value={priceSYP}
                 onChange={(e) => setPriceSYP(e.target.value)}
                 required
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Year</h3>
               </div>
               <input
                 type="number"
                 placeholder=""
-                className="w-full py-4 border-gray-300 rounded px-6"
+                className="w-full py-3 border border-gray-300 rounded px-4 text-end box-border"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
                 required
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Kilometer</h3>
               </div>
               <input
                 type="number"
                 placeholder="km"
-                className="w-full py-4 border-gray-300 rounded px-6 text-end"
+                className="w-full py-3 border border-gray-300 rounded px-4 text-end box-border"
                 value={kilometer}
                 onChange={(e) => setKilometer(e.target.value)}
                 required
               />
             </label>
           </div>
-          <div className="flex justify-between items-center gap-10 mt-8">
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+          {/* Third Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Engine Size (CC)</h3>
               </div>
               <Select
@@ -233,8 +249,9 @@ const AddListingPage = () => {
                 classNamePrefix="select"
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Location</h3>
               </div>
               <Select
@@ -254,8 +271,9 @@ const AddListingPage = () => {
                 classNamePrefix="select"
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Transmission</h3>
               </div>
               <Select
@@ -276,9 +294,11 @@ const AddListingPage = () => {
               />
             </label>
           </div>
-          <div className="flex justify-between items-center gap-10 mt-8">
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+          {/* Fourth Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Fuel Type</h3>
               </div>
               <Select
@@ -298,8 +318,9 @@ const AddListingPage = () => {
                 classNamePrefix="select"
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Exterior Color</h3>
               </div>
               <Select
@@ -319,8 +340,9 @@ const AddListingPage = () => {
                 classNamePrefix="select"
               />
             </label>
-            <label className="w-full">
-              <div className="mb-2 px-3">
+
+            <label className="col-span-1">
+              <div className="mb-1">
                 <h3 className="font-semibold">Interior Color</h3>
               </div>
               <Select
@@ -342,7 +364,7 @@ const AddListingPage = () => {
             </label>
           </div>
 
-          {/* Other components */}
+          {/* Other Sections */}
           <div className="mt-10">
             <FeaturesSection
               selectedFeatures={selectedFeatures}
@@ -363,10 +385,11 @@ const AddListingPage = () => {
             />
           </div>
 
-          <div className="flex justify-end py-20">
+          {/* Submit Button */}
+          <div className="flex justify-end py-10">
             <button
               type="submit"
-              className="bg-[#FF9540] text-[#314352] px-4 py-2 rounded-md  cursor-pointer"
+              className="bg-[#FF9540] text-[#314352] px-4 py-2 rounded-md cursor-pointer"
             >
               Add Listing +
             </button>
