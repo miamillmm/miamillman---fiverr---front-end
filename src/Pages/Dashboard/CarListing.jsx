@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router";
+import Translate from "../../utils/Translate";
 
 const getUidFromUrl = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -83,16 +84,16 @@ const CarListing = () => {
   return (
     <div className="container mx-auto px-6 py-10">
       <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-10">
-        🚗 Explore Our Premium Car Collection
+        🚗 <Translate text={"Explore Our Premium Car Collection"} />
       </h2>
 
       {loading ? (
         <div className="text-center text-gray-600 text-xl animate-pulse">
-          Loading cars... ⏳
+          <Translate text={"Loading cars..."} /> ⏳
         </div>
       ) : cars.length === 0 ? (
         <div className="text-center text-gray-600 text-lg">
-          No cars available right now. 😔
+          <Translate text={"No cars available right now."} /> 😔
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -129,7 +130,7 @@ const CarListing = () => {
                 <p className="text-gray-600 mt-1">📍 {car.location}</p> */}
                 <Link to={`/listing/${car?._id}`}>
                   <button className="mt-5 w-full bg-orange-500 text-white font-bold px-4 py-3 rounded-lg hover:bg-orange-600 transition text-lg cursor-pointer">
-                    View Details
+                    <Translate text={"View Details"} />
                   </button>
                 </Link>
               </div>

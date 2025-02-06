@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router";
+import Translate from "../../utils/Translate";
 
 const Navbar = () => {
   const location = useLocation();
@@ -8,7 +9,11 @@ const Navbar = () => {
       <div className="flex items-center gap-6">
         {["/addlisting", "/dashboard", "/messages", "/settings"].map(
           (path, index) => {
-            const labels = ["Add New", "My Listing", "Messages"];
+            const labels = [
+              <Translate key={1} text="Add New" />,
+              <Translate key={2} text={"My Listing"} />,
+              <Translate key={3} text={"Messages"} />,
+            ];
             const isActive = location.pathname === path;
 
             return (
