@@ -53,12 +53,19 @@ const BannerSection = () => {
         <div className="text-white text-center md:text-left">
           <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold mb-4 tracking-[-0.04em]">
             <Translate text="The #1 Website" />{" "}
-            <span className="text-[#ff9540]">buy</span> &{" "}
-            <span className="text-[#ff9540]">sell</span> cars in Syria
+            <span className="text-[#ff9540]">
+              <Translate text="buy" />
+            </span>{" "}
+            &{" "}
+            <span className="text-[#ff9540]">
+              <Translate text="sell" />
+            </span>{" "}
+            <Translate text="cars in Syria" />
           </h1>
           <p className="text-base sm:text-lg md:text-2xl font-light">
-            Our goal is to meet your needs <br className="hidden sm:block" />{" "}
-            and exceed your expectations.
+            <Translate text="Our goal is to meet your needs" />{" "}
+            <br className="hidden sm:block" />{" "}
+            <Translate text="and exceed your expectations." />
           </p>
           <div className="mt-3 hidden md:block ml-16">
             <svg
@@ -86,7 +93,7 @@ const BannerSection = () => {
         {/* Right Side - Form */}
         <div className="bg-[#374b5c] shadow-lg rounded-2xl w-full md:w-3/4 p-6 sm:p-8 ml-auto mt-10 md:mt-0">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white text-center">
-            Search listings
+            <Translate text="Search listings" />
           </h2>
           <form className="space-y-4 sm:space-y-6" onSubmit={handleSerach}>
             <div className="space-y-4">
@@ -104,7 +111,7 @@ const BannerSection = () => {
                 }}
               >
                 <option value="" disabled selected>
-                  -- Make --
+                  -- <Translate text="Make" /> --
                 </option>
                 {makes.map((make) => (
                   <>
@@ -118,7 +125,7 @@ const BannerSection = () => {
                 onChange={(e) => setSerachModel(e.target.value)}
               >
                 <option value="" disabled selected>
-                  -- Model --
+                  -- <Translate text="Model" /> --
                 </option>
                 {modelOptions.map((model) => (
                   <>
@@ -132,7 +139,7 @@ const BannerSection = () => {
               type="submit"
               className="w-full bg-[#ff9540] hover:bg-[#ffa258] py-3 sm:py-4 rounded-lg text-[#314352] text-lg cursor-pointer"
             >
-              Search
+              <Translate text="Search" />
             </button>
           </form>
         </div>

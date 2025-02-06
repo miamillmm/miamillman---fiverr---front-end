@@ -4,6 +4,7 @@ import { TiArrowRight } from "react-icons/ti";
 import { AiOutlineDashboard } from "react-icons/ai";
 import axios from "axios";
 import { CiCalendar, CiHeart, CiLocationOn, CiShare2 } from "react-icons/ci";
+import Translate from "../utils/Translate";
 
 const Featured = () => {
   const [cars, setCars] = useState([]);
@@ -103,19 +104,19 @@ const Featured = () => {
       <div className="header flex flex-col md:flex-row justify-between flex-wrap items-center mb-12">
         <div className="space-y-4 text-center md:text-left">
           <button className="text-[12px] sm:text-[14px] font-[400] text-gray-500 bg-gray-100 py-2 px-4 rounded cursor-pointer">
-            Handy picked
+            <Translate text="Handy picked" />
           </button>
           <h2 className="text-[28px] sm:text-[36px] font-bold text-[#314352]">
-            Featured listings
+            <Translate text="Featured listings" />
           </h2>
         </div>
         <div className="flex gap-4 mt-6 md:mt-0">
           <button className="text-[14px] sm:text-[16px] font-[400] text-[#ff9540] bg-[#314352] py-3 sm:py-4 px-6 sm:px-8 rounded cursor-pointer">
-            All
+            <Translate text="All" />
           </button>
           <Link to={"/search"}>
             <button className="bg-[#ff9540] text-[#314352] text-[16px] sm:text-[18px] font-[400] justify-between py-3 sm:py-4 px-8 sm:px-12 rounded-md flex items-center gap-2 cursor-pointer">
-              View All
+              <Translate text="View All" />
               <span>
                 <TiArrowRight />
               </span>
@@ -181,12 +182,17 @@ const Featured = () => {
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-1 text-xl">
                         <CiCalendar />
-                        <span>{data?.year ? data?.year : "N/A"}</span>
+                        <span>
+                          {data?.year ? <Translate text={data?.year} /> : "N/A"}
+                        </span>
                       </div>
                       <div className="flex items-center gap-1 text-xl">
                         <AiOutlineDashboard />
                         <span>
-                          {data?.kilometer ? data?.kilometer : "N/A"} km
+                          <Translate
+                            text={data?.kilometer ? data?.kilometer : "N/A"}
+                          />{" "}
+                          km
                         </span>
                       </div>
                     </div>
@@ -201,7 +207,7 @@ const Featured = () => {
                         to={`/listing/${data?._id}`}
                         className="block bg-orange-500 text-white text-lg py-1 px-4 rounded"
                       >
-                        View Details
+                        <Translate text="View Details" />
                       </Link>
                     </div>
                   </div>
@@ -213,7 +219,7 @@ const Featured = () => {
           <>
             <div className="">
               <h2 className="text-3xl text-red-600 text-center">
-                No Result Found
+                <Translate text={"No Result Found"} />
               </h2>
             </div>
           </>

@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
-
-const API_URL = `${import.meta.env.VITE_API_URL}/translate`; // Use your main backend
 
 const translationCache = {}; // Cache translations
 
@@ -23,11 +20,19 @@ export const useTranslate = (text) => {
       return;
     }
 
-    axios
-      .post(API_URL, { text, targetLang })
-      .then((res) => {
-        translationCache[cacheKey] = res.data.translatedText;
-        setTranslatedText(res.data.translatedText);
+    // Use Google Translate's public endpoint
+    fetch(
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(
+        text
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data[0]) {
+          const translated = data[0].map((t) => t[0]).join("");
+          translationCache[cacheKey] = translated;
+          setTranslatedText(translated);
+        }
       })
       .catch((error) => {
         console.error("❌ Translation error:", error);
