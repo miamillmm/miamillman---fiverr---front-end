@@ -4,6 +4,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { NavLink } from "react-router";
 import { TiArrowRight } from "react-icons/ti";
 import { MdOutlineAttachEmail } from "react-icons/md";
+import Translate from "../utils/Translate";
 
 const Contact = () => {
   return (
@@ -26,7 +27,10 @@ const Contact = () => {
         <div className="relative z-10 container mx-auto px-4 sm:px-8 lg:px-18 h-full flex flex-col justify-center">
           {/* Title */}
           <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-[-0.04em] pt-10">
-            <span className="text-[#FF9540] text-[38px] sm:text-[58px]">Contact</span> us
+            <span className="text-[#FF9540] text-[38px] sm:text-[58px]">
+              <Translate text={"Contact"} />
+            </span>{" "}
+            <Translate text={"us"} />
           </h1>
 
           {/* Breadcrumb */}
@@ -36,10 +40,12 @@ const Contact = () => {
                 to="/"
                 className="hover:text-[#ff9540] duration-500 transition-all ease-in-out"
               >
-                Home
+                <Translate text={"Home"} />
               </NavLink>
               <MdOutlineKeyboardArrowRight />
-              <span className="text-white">Contact</span>
+              <span className="text-white">
+                <Translate text={"Contact"} />
+              </span>
             </nav>
           </div>
         </div>
@@ -49,21 +55,23 @@ const Contact = () => {
         {/* Left Side */}
         <div className="space-y-2 text-center md:text-left">
           <button className="text-[12px] sm:text-[14px] font-[400] text-gray-500 bg-gray-100 py-2 px-4 rounded cursor-pointer">
-            How Can We Help?
+            <Translate text={"How Can We Help?"} />
           </button>
           <h2 className="text-[28px] sm:text-[36px] font-bold text-[#314352]">
-            We Are Ready to Help
+            <Translate text={"We Are Ready to Help"} />
           </h2>
           <p className="text-gray-500">
-            Please fill out the contact form and allow us to help you with any
-            problem you may be facing on the website – SyriaSouq
+            <Translate
+              text={`Please fill out the contact form and allow us to help you with any
+            problem you may be facing on the website – SyriaSouq`}
+            />
           </p>
         </div>
 
         {/* Right Side - Form */}
         <div className="bg-[#374b5c] z-10 shadow-lg rounded-2xl w-full p-6 sm:p-8 mt-10 md:-mt-30">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white text-center">
-            Send a Message
+            <Translate text={"Send a Message"} />
           </h2>
           <form className="space-y-4 sm:space-y-6">
             <div className="space-y-4">
@@ -98,7 +106,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full sm:w-2/3 bg-[#ff9540] hover:bg-[#ffa258] py-3 sm:py-4 rounded-lg text-[#314352] text-lg cursor-pointer flex justify-between items-center px-12"
               >
-                Send Message{" "}
+                <Translate text={"Send Message"} />{" "}
                 <span>
                   <TiArrowRight className="text-2xl text-gray-600" />
                 </span>
@@ -127,7 +135,9 @@ const Contact = () => {
             </svg>
           </div>
 
-          <h2 className="text-2xl font-semibold text-gray-700 mt-5">Write to Us</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mt-5">
+            <Translate text={"Write to Us"} />
+          </h2>
           <p className="text-gray-600 mt-2">syriasouq.shop@outlook.com</p>
         </div>
       </section>
