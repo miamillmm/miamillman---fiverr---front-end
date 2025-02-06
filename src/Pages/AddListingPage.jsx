@@ -5,6 +5,7 @@ import FeaturesSection from "./FeaturesSection";
 import ImageUpload from "./ImageUpload";
 import { Link, useNavigate } from "react-router";
 import { makes } from "../utils/utils";
+import Translate from "../utils/Translate";
 
 const carMakes = [
   { value: "Abarth", label: "Abarth" },
@@ -119,22 +120,24 @@ const AddListingPage = () => {
     <div className="pt-25">
       {/* login or register first */}
       <div className="px-28">
-        <h1 className="text-[#314352] text-3xl font-bold py-10">Add Listing</h1>
+        <h1 className="text-[#314352] text-3xl font-bold py-10">
+          <Translate text="Add Listing" />
+        </h1>
         <div
           className={`border-2 border-dashed border-gray-300 rounded bg-gray-50 py-8 flex items-center justify-center mb-8 ${
             user ? "hidden" : ""
           }`}
         >
           <h1>
-            You can also{" "}
+            <Translate text={"You can also"} />{" "}
             <Link to="/login-and-register" className="text-[#ff9540]">
-              Log In
+              <Translate text={"Log In"} />
             </Link>{" "}
-            or{" "}
+            <Translate text={"or"} />{" "}
             <Link to="/login-and-register" className="text-[#ff9540]">
-              Register
+              <Translate text={"Register"} />
             </Link>{" "}
-            first.
+            <Translate text={"first."} />
           </h1>
         </div>
       </div>
@@ -143,7 +146,7 @@ const AddListingPage = () => {
       <div className="px-28 bg-gray-100 shadow p-6 ">
         <div className="flex items-center w-full mb-5 pl-5">
           <h2 className="text-2xl font-bold text-[#314252] whitespace-nowrap">
-            General info
+            <Translate text={"General info"} />
           </h2>
           <div className="flex-1 border-t border-gray-300 border-dashed mx-2"></div>
           <button className="text-gray-400 hover:text-gray-600">▼</button>
@@ -152,7 +155,9 @@ const AddListingPage = () => {
           <div className="flex justify-between items-center gap-10 mt-8">
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Make</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Make"} />
+                </h3>
               </div>
               <Select
                 options={makes} // Directly use the makes array
@@ -173,7 +178,9 @@ const AddListingPage = () => {
 
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Model</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Model"} />
+                </h3>
               </div>
               <Select
                 options={modelOptions}
@@ -194,7 +201,9 @@ const AddListingPage = () => {
             </label>
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Price (USD)</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Price (USD)"} />
+                </h3>
               </div>
               <input
                 type="number"
@@ -209,7 +218,9 @@ const AddListingPage = () => {
           <div className="flex justify-between items-center gap-10 mt-8">
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Price (SYP)</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Price (SYP)"} />
+                </h3>
               </div>
               <input
                 type="number"
@@ -222,7 +233,9 @@ const AddListingPage = () => {
             </label>
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Year</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Year"} />
+                </h3>
               </div>
               <input
                 type="number"
@@ -235,7 +248,9 @@ const AddListingPage = () => {
             </label>
             <label className="w-full">
               <div className="mb-2 px-3">
-                <h3 className="font-semibold">Kilometer</h3>
+                <h3 className="font-semibold">
+                  <Translate text={"Kilometer"} />
+                </h3>
               </div>
               <input
                 type="number"
@@ -251,7 +266,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Engine Size (CC) <span className="text-xs">(Optional)</span>
+                  <Translate text={"Engine Size (CC)"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>
                 </h3>
               </div>
               <Select
@@ -273,7 +291,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Location <span className="text-xs">(Optional)</span>
+                  <Translate text={"Location"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>
                 </h3>
               </div>
               <Select
@@ -295,7 +316,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Transmission <span className="text-xs">(Optional)</span>{" "}
+                  <Translate text={"Transmission"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>{" "}
                 </h3>
               </div>
               <Select
@@ -319,7 +343,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Fuel Type <span className="text-xs">(Optional)</span>
+                  <Translate text={"Fuel Type"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>
                 </h3>
               </div>
               <Select
@@ -341,7 +368,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Exterior Color <span className="text-xs">(Optional)</span>
+                  <Translate text={"Exterior Color"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>
                 </h3>
               </div>
               <Select
@@ -363,7 +393,10 @@ const AddListingPage = () => {
             <label className="w-full">
               <div className="mb-2 px-3">
                 <h3 className="font-semibold text-orange-400">
-                  Interior Color <span className="text-xs">(Optional)</span>
+                  <Translate text={"Interior Color"} />{" "}
+                  <span className="text-xs">
+                    (<Translate text={"Optional"} />)
+                  </span>
                 </h3>
               </div>
               <Select
@@ -392,7 +425,9 @@ const AddListingPage = () => {
             />
           </div>
           <div className="mt-10">
-            <h2 className="text-xl mb-2 font-bold">Description</h2>
+            <h2 className="text-xl mb-2 font-bold">
+              <Translate text={"Description"} />
+            </h2>
             <textarea
               onChange={(e) => setDescription(e.target.value)}
               className="w-full bg-white outline-none rounded-lg p-2"
@@ -411,7 +446,7 @@ const AddListingPage = () => {
               type="submit"
               className="bg-[#FF9540] text-[#314352] px-4 py-2 rounded-md  cursor-pointer"
             >
-              Add Listing +
+              <Translate text={"Add Listing"} /> +
             </button>
           </div>
         </form>

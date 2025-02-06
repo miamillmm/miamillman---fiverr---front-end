@@ -1,31 +1,32 @@
 import React, { useState } from "react";
+import Translate from "../utils/Translate";
 
-const FeaturesSection = ({selectedFeatures,setSelectedFeatures}) => {
+const FeaturesSection = ({ selectedFeatures, setSelectedFeatures }) => {
   const features = [
-    "360-degree camera",
-    "Adaptive headlights",
-    "Blind-spot warning",
-    "Cooled seats",
-    "Heated seats",
-    "LED headlights",
-    "Performance tyres",
-    "Sound system",
-    "ABS",
-    "Backup camera",
-    "Bluetooth",
-    "Extensive tool kit",
-    "Keyless start",
-    "Memory seat",
-    "Reversing camera",
-    "Traction control",
-    "Active head restraints",
-    "Blind spot alert",
-    "Brake assist",
-    "Forward-collision warning",
-    "Leather seats",
-    "Navigation system",
-    "Side airbags",
-    "USB port",
+    <Translate key={1} text={"360-degree camera"} />,
+    <Translate key={2} text={"Adaptive headlights"} />,
+    <Translate key={3} text={"Blind-spot warning"} />,
+    <Translate key={4} text={"Cooled seats"} />,
+    <Translate key={5} text={"Heated seats"} />,
+    <Translate key={6} text={"LED headlights"} />,
+    <Translate key={7} text={"Performance tyres"} />,
+    <Translate key={8} text={"Sound system"} />,
+    <Translate key={9} text={"ABS"} />,
+    <Translate key={10} text={"Backup camera"} />,
+    <Translate key={11} text={"Bluetooth"} />,
+    <Translate key={12} text={"Extensive tool kit"} />,
+    <Translate key={13} text={"Keyless start"} />,
+    <Translate key={14} text={"Memory seat"} />,
+    <Translate key={15} text={"Reversing camera"} />,
+    <Translate key={16} text={"Traction control"} />,
+    <Translate key={17} text={"Active head restraints"} />,
+    <Translate key={18} text={"Blind spot alert"} />,
+    <Translate key={19} text={"Brake assist"} />,
+    <Translate key={20} text={"Forward-collision warning"} />,
+    <Translate key={21} text={"Leather seats"} />,
+    <Translate key={22} text={"Navigation system"} />,
+    <Translate key={23} text={"Side airbags"} />,
+    <Translate key={24} text={"USB port"} />,
   ];
 
   const toggleFeature = (feature) => {
@@ -40,7 +41,7 @@ const FeaturesSection = ({selectedFeatures,setSelectedFeatures}) => {
     <div className="p-6 ">
       <div className="flex items-center w-full mb-5 pl-5">
         <h2 className="text-2xl font-bold text-[#314252] whitespace-nowrap">
-          Features
+          <Translate text={"Features"} />
         </h2>
         <div className="flex-1 border-t border-gray-300 border-dashed mx-2"></div>
         <button className="text-gray-400 hover:text-gray-600">▼</button>
