@@ -254,7 +254,7 @@ const AddListingPage = () => {
                 value={make}
                 onChange={setMake}
                 required
-                placeholder={<Translate text={"Select Make"} />}
+                placeholder={currentLanguage === "ar" ? "حدد نوع المركبة" : <Translate text={"Select Make"} />}
                 isSearchable
                 className="cursor-pointer"
                 styles={{
